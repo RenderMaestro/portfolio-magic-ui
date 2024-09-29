@@ -4,11 +4,11 @@ import Link from "next/link";
 
 interface Props {
   title: string;
-  description: string;
+  description: any;
   dates: string;
   location: string;
-  image?: string;
-  links?: readonly {
+  image?: any;
+  links?: {
     icon: React.ReactNode;
     title: string;
     href: string;
@@ -20,14 +20,14 @@ export function HackathonCard({
   description,
   dates,
   location,
-  image,
-  links,
-}: Props) {
+}: // image="",
+// links,
+any) {
   return (
     <li className="relative ml-10 py-4">
       <div className="absolute -left-16 top-2 flex items-center justify-center bg-white rounded-full">
         <Avatar className="border size-12 m-auto">
-          <AvatarImage src={image} alt={title} className="object-contain" />
+          <AvatarImage src={title} alt={title} className="object-contain" />
           <AvatarFallback>{title[0]}</AvatarFallback>
         </Avatar>
       </div>
@@ -45,9 +45,9 @@ export function HackathonCard({
           </span>
         )}
       </div>
-      {links && links.length > 0 && (
+      {/* {links && links.length > 0 && (
         <div className="mt-2 flex flex-row flex-wrap items-start gap-2">
-          {links?.map((link, idx) => (
+          {links?.map((link: any, idx: any) => (
             <Link href={link.href} key={idx}>
               <Badge key={idx} title={link.title} className="flex gap-2">
                 {link.icon}
@@ -56,7 +56,7 @@ export function HackathonCard({
             </Link>
           ))}
         </div>
-      )}
+      )} */}
     </li>
   );
 }
